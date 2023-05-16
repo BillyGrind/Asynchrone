@@ -7,6 +7,9 @@ inputText.setAttribute("type", "text");
 containerFetch.appendChild(inputText);
 containerFetch.appendChild(buttonFetch);
 
+//ARRAY DE MES COUILLES
+let newArray = [];
+
 //create select country
 let select = document.createElement("select");
 
@@ -29,10 +32,10 @@ buttonFetch.addEventListener("click", () => {
   let innerTextValue = inputText.value;
   //value option select
   let selectValue = select.value;
-  console.log(selectValue);
+  // console.log(selectValue);
   //create new Div
   let newDiv = document.createElement("div");
-  console.log(innerTextValue);
+  // console.log(innerTextValue);
 
   // request with de input value
   const fetchName = (name, country) =>
@@ -53,9 +56,14 @@ buttonFetch.addEventListener("click", () => {
       `;
       newDiv.innerHTML += content;
       containerFetch.appendChild(newDiv);
-      localStorage.setItem("response", JSON.stringify(json));
+      console.log(JSON.stringify(json));
     })
     .catch((error) => {
       console.log("There was an error!", error);
     });
 });
+
+// newArray.push(JSON.stringify(json));
+// newArray.forEach((element) => {
+//   localStorage.setItem("Async", element);
+// });
